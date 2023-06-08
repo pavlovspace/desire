@@ -5,6 +5,8 @@ body {
 	font-size: 16px;
 	line-height: 27px;
 	color: $default;
+	overflow-x: hidden;
+	min-width: 320px;
 }
 
 .wrapper {
@@ -16,17 +18,17 @@ body {
 .main {
 	flex: 1 0 auto;
 }
+
 .footer {
 	flex: 0 0 auto;
+	// position: fixed;
+	// left: 0;
+	// bottom: 0;
+	// width: 100%;
 }
 
-.container{
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 15px;
 }
-
-
-
-
-
