@@ -52,6 +52,10 @@
     top: 0;
 }
 
+.top__slider-dots{
+    text-align: center;
+}
+
 .dot {
     cursor: pointer;
     height: 15px;
@@ -65,7 +69,7 @@
 
 .active,
 .dot:hover {
-    background-color: #717171;
+    background-color: #F1D152;
 }
 
 .fade {
