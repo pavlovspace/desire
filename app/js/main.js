@@ -1,3 +1,5 @@
+//  RIGHT MENU ---------------->>>>>>>>--------------------------------
+
 let headerBtn = document.querySelector('.header__btn');
 let rightsideMenu = document.querySelector('.rightside-menu');
 let BtnClose = document.querySelector('.rightside-menu__close');
@@ -43,15 +45,46 @@ function showSlides(n) {
 //  GALLERY- FILTER ---------------->>>>>>>>--------------------------------
 
 const filterGallery = document.querySelectorAll('.gallery__item');
+const galleryButtons = document.querySelector('.gallery__buttons');
+const galleryBtn = document.querySelectorAll('.gallery__btn');
+const galleryItemImg = document.querySelectorAll('.gallery__item-img');
+const galleryItemImgResize = document.querySelectorAll('.gallery__item-img--resize');
+const firstGalleryItem = document.querySelector('.gallery__item:first-child');
 
-document.querySelector('.gallery__buttons').addEventListener('click', e => {
-    if (e.target.className !== 'gallery__btn') return false
+
+galleryButtons.addEventListener('click', e => {
+    if (e.target.className !== 'gallery__btn') {
+        return false
+    }
+
+    galleryItemImgResize.forEach(element => {
+        element.classList.remove('resizeImg');
+    });
+    if (e.target.getAttribute('data-f') === 'bedroom-furniture') {
+        galleryItemImgResize.forEach(element => {
+            element.classList.add('resizeImg');
+        });
+    }
+
     let filterClass = e.target.dataset['f']
+
+    galleryBtn.forEach(btn => {
+        if (btn === e.target) {
+            btn.classList.add('gallery-active');
+        } else {
+            btn.classList.remove('gallery-active');
+        }
+    });
 
     filterGallery.forEach(elem => {
         elem.classList.remove('gallery-hide')
+        firstGalleryItem.style.gridColumn = 'span 2';
+        firstGalleryItem.style.gridRow = 'span 2';
         if (!elem.classList.contains(filterClass) && filterClass !== 'all') {
             elem.classList.add('gallery-hide')
+            firstGalleryItem.style.gridColumn = 'span 1';
+            firstGalleryItem.style.gridRow = 'span 1';
         }
     })
 })
+
